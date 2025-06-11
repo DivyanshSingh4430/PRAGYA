@@ -2,5 +2,7 @@ streamlit
 langchain
 langchain-community
 openai
+PyPDF2
 tiktoken
 pypdf
+chromadb
