@@ -27,8 +27,8 @@ with open("ncert_class10_science.pdf", "rb") as f:
 
     # Embed
     import os
-openai_key = os.getenv("OPENAI_API_KEY")
-embeddings = OpenAIEmbeddings(openai_api_key=openai_key)
+    openai_key = os.getenv("OPENAI_API_KEY")
+    embeddings = OpenAIEmbeddings(openai_api_key=openai_key)
     vectorstore = DocArrayInMemorySearch.from_texts(chunks, embedding=embeddings)
 
     # QA Chain
