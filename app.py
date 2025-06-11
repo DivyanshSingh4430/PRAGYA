@@ -1,7 +1,7 @@
 import streamlit as st
 from PyPDF2 import PdfReader
 from langchain.text_splitter import CharacterTextSplitter
-from langchain.vectorstores import Chroma
+from langchain.vectorstores import DocArrayInMemorySearch
 from langchain.embeddings import OpenAIEmbeddings
 from langchain.chains.question_answering import load_qa_chain
 from langchain.llms import OpenAI
@@ -26,7 +26,7 @@ if uploaded_file:
 
     # Embed
     embeddings = OpenAIEmbeddings()
-    vectorstore = Chroma.from_texts(chunks, embedding=embeddings)
+    vectorstore = DocArrayInMemorySearch.from_texts(chunks, embedding=embeddings)
 
     # QA Chain
     llm = OpenAI(temperature=0)
