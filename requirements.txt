@@ -6,3 +6,4 @@ PyPDF2
 tiktoken
 pypdf
 chromadb
+protobuf==3.20.3
