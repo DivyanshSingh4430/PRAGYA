@@ -2,7 +2,7 @@ import os
 import streamlit as st
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_community.embeddings import OpenAIEmbeddings
-from langchain_community.vectorstores import Chroma
+from langchain_community.vectorstores import FAISS
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.llms import OpenAI
 from langchain.chains.question_answering import load_qa_chain
@@ -21,7 +21,7 @@ texts = text_splitter.split_documents(documents)
 # Load API key from Streamlit secrets
 openai_api_key = os.getenv("OPENAI_API_KEY")
 embeddings = OpenAIEmbeddings(openai_api_key=openai_api_key)
-vectorstore = Chroma.from_documents(texts, embedding=embeddings)
+vectorstore = FAISS.from_documents(texts, embedding=embeddings)
 
 # LLM and chain
 llm = OpenAI(temperature=0, openai_api_key=openai_api_key)
