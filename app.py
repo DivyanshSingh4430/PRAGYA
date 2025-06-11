@@ -12,11 +12,12 @@ st.set_page_config(page_title="Pragya - Class 10 Science Chatbot")
 st.markdown("<h1 style='text-align: center; color: #4a90e2;'>🧠 Pragya: NCERT Class 10 Science Chatbot</h1>", unsafe_allow_html=True)
 st.markdown("<p style='text-align: center; font-style: italic;'>CREATED BY DIVYANSH SINGH</p>", unsafe_allow_html=True)
 
-uploaded_file = st.file_uploader("📄 Upload your NCERT Class 10 Science PDF", type="pdf")
-
-if uploaded_file:
-    pdf_reader = PdfReader(uploaded_file)
+with open("ncert_class10_science.pdf", "rb") as f:
+    pdf_reader = PdfReader(f)
     text = ""
+    for page in pdf_reader.pages:
+        text += page.extract_text() or ""
+
     for page in pdf_reader.pages:
         text += page.extract_text() or ""
 
