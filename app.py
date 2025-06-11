@@ -1,8 +1,8 @@
 import os
 import streamlit as st
-from langchain.indexes import VectorstoreIndexCreator
-from langchain.document_loaders import PyPDFLoader
+from langchain_community.document_loaders import PyPDFLoader
 from langchain.llms import OpenAI
+from langchain.indexes import VectorstoreIndexCreator
 
 loader = PyPDFLoader("ncert_class10_science.pdf")
 index = VectorstoreIndexCreator().from_loaders([loader])
