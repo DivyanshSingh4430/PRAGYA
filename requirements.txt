@@ -1,5 +1,7 @@
 streamlit
 langchain
 openai
-PyPDF2
 tiktoken
+PyPDF2
+langchain-community
+langchain-core
